@@ -1,5 +1,8 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Homepage from './pages/homepage';
+import Footer from './components/footer';
+import Navbar from './components/navbar';
 
 function App() {
   return (
@@ -10,7 +13,7 @@ function App() {
             path="/"
             element={
               <>
-                
+                <Navbar/><Homepage/><Footer/>
               </>
             }
           ></Route>
