@@ -5,8 +5,9 @@ const Footer = () =>{
 
 
     return (
-        <div>
-            Footer
+        <div className='footer'>
+
+           <p>MoviePress @ 2023</p> 
         </div>
     )
 }

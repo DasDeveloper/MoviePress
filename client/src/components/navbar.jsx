@@ -6,10 +6,19 @@ const Navbar = () =>{
     return (
         <div className="navbar">
 
-            <p className="logo">MoviePress</p>
-            <input type="textbox" placeholder='Search movies'></input>
-            <button> Sign In</button>
-            <button> Sign up</button>
+            <div className="left">
+                <p className="logo">MoviePress</p>
+            </div>
+
+            <div className='search'>
+                <input type="textbox" placeholder='Search movies'></input>
+            </div>
+            <div className='right'>
+            
+                <button> Sign In</button>
+                <button> Sign up</button>
+            </div>
+            
             
 
         </div>
