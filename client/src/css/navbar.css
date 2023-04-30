@@ -8,7 +8,7 @@
 
 }
 .navbar .left{
-    border: 2px red solid;
+    /* border: 2px red solid; */
     width: 400px;
     margin-right: 20px;
 }
@@ -25,7 +25,7 @@
 
 .navbar .search {
 
-    border: 2px black solid;
+    /* border: 2px black solid; */
     width: 1000px;
 }
 
@@ -39,7 +39,7 @@
 
 .navbar .right {
 
-    border: 2px green solid;
+    /* border: 2px green solid; */
     width: 100%;
     display: flex;
     justify-content: flex-end;

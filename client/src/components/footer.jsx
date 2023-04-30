@@ -7,7 +7,7 @@ const Footer = () =>{
     return (
         <div className='footer'>
 
-           <p>MoviePress @ 2023</p> 
+           <p><b>MoviePress @ 2023</b></p> 
         </div>
     )
 }
