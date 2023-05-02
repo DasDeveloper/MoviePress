@@ -22,7 +22,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/{id}")
+    @GetMapping(path = "/{id}", produces="application/json")
     public ResponseEntity<Optional<User>> getUser (@PathVariable String id){
 
         return new ResponseEntity<Optional<User>>(userService.getUser(id),HttpStatus.OK);

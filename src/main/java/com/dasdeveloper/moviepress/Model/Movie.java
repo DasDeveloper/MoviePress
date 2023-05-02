@@ -1,13 +1,27 @@
 package com.dasdeveloper.moviepress.Model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Document(collection = "movies")
 public class Movie {
 
-    private ObjectId id;
-    private String Title;
+    @Id
+    private String id;
+    private String title;
+    private String director;
+    private double overallRating;
+    private List<Review> reviewsList;
+    private String url;
     
 }
