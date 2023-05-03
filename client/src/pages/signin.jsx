@@ -14,12 +14,19 @@ const Signin = () =>{
 
                 <div className="signin">
 
-                    <form>
+                    <div className="header">
+                        Log In to your Account
+                    </div>
+                    
 
-                        <input placeholder="Enter email"/>
-                        <input placeholder="Enter password" type="password"/>
-                        <button> Sign In</button>
-                    </form>
+                    <label for="email">Email</label>
+                    <input placeholder="Enter email" name="email"/>
+                    <label for="password">Password</label>
+                    <input placeholder="Enter password" type="password" name="password"/>
+                    <div className="header">Don't have an account? <href> Sign Up</href> </div>
+                    <button> Sign In</button>
+                    
+                    
             
 
                 </div>
