@@ -1,7 +1,14 @@
 
 import '../css/navbar.css'
+import {useNavigate} from "react-router"
 
 const Navbar = () =>{
+
+    const navigate = useNavigate();
+
+    const redirectToSignIn = () =>{
+        navigate("/signin");
+    }
 
     return (
         <div className="navbar">
@@ -15,7 +22,7 @@ const Navbar = () =>{
             </div>
             <div className='right'>
             
-                <button> Sign In</button>
+                <button onClick={redirectToSignIn}> Sign In</button>
                 <button> Sign up</button>
             </div>
             
