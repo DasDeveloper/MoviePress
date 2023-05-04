@@ -4,6 +4,8 @@ import Homepage from './pages/homepage';
 import Footer from './components/footer';
 import Navbar from './components/navbar';
 import Signin from './pages/signin';
+import Signup from './pages/signup';
+import Header from './components/header';
 
 function App() {
   return (
@@ -23,11 +25,19 @@ function App() {
             path="/signin"
             element={
               <>
-              <Signin/><Footer/>
+              <Header/><Signin/><Footer/>
               </>
-            }>
+            }
+          ></Route>
 
-        </Route>
+          <Route
+            path="/signup"
+            element={
+              <>
+              <Header/><Signup/><Footer/>
+              </>
+            }
+          ></Route>
 
 
       </Routes>

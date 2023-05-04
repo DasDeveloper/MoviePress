@@ -10,6 +10,10 @@ const Navbar = () =>{
         navigate("/signin");
     }
 
+    const redirectToSignUp = () =>{
+        navigate("/signup");
+    }
+
     return (
         <div className="navbar">
 
@@ -23,7 +27,7 @@ const Navbar = () =>{
             <div className='right'>
             
                 <button onClick={redirectToSignIn}> Sign In</button>
-                <button> Sign up</button>
+                <button onClick={redirectToSignUp}> Sign up</button>
             </div>
             
             

@@ -1,5 +1,5 @@
+.signup {
 
-.signin {
     border: 1px #006dd8 solid;
     margin: auto;
     display: flex;
@@ -12,7 +12,7 @@
     
 }
 
-.signin .header{
+.signup .header{
 
     text-align: center;
     margin-top: 40px;
@@ -20,25 +20,18 @@
     font-size: 24px;
     
 }
-.signin .header href {
-    text-decoration: underline;
-}
 
-/* .signin p {
-    margin: 20px;
-    margin-left: 300px;
-} */
-.signin label{
+.signup label{
     margin: 20px;
     margin-left: 20px;
     font-weight: bold;
     font-size: large;
     margin-bottom: 10px;
-    margin-top: 50px;
+    margin-top: 30px;
     
 }
 
-.signin input{
+.signup input{
     width: 90%;
     height: 35px;
     margin-left: 20px;
@@ -46,7 +39,7 @@
     border-radius: 5px;
 }
 
-.signin button{
+.signup button{
 
     width: 300px;
     margin: auto;
@@ -57,6 +50,6 @@
     font-size: large;
 }
 
-.signin button:hover{
+.signup button:hover{
      background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
 }
