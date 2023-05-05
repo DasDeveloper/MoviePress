@@ -22,6 +22,21 @@ public class UserService {
 
     }
 
+    public Boolean checkIfUserExists(String email){
+
+
+        return true;
+    }
+
+    public void createUser (User newUser){
+
+        userRepository.save(newUser);
+
+    }
+
+
+
+
 
 
 
