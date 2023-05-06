@@ -3,6 +3,7 @@ package com.dasdeveloper.moviepress.Service;
 import com.dasdeveloper.moviepress.Model.User;
 import com.dasdeveloper.moviepress.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Service;
 
 
@@ -20,12 +21,6 @@ public class UserService {
 
         return userRepository.findById(id);
 
-    }
-
-    public Boolean checkIfUserExists(String email){
-
-
-        return true;
     }
 
     public void createUser (User newUser){
