@@ -28,9 +28,13 @@ public class UserController {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createUser( @RequestBody User newUser){
-        
+    public String createUser(@RequestBody User newUser){
+
+        if(userService.checkIfUserAlreadyExists(newUser.getEmail()).isEmpty()) {
             userService.createUser(newUser);
+            return "User successfully created.";
+        }
+        return "User already exists";
 
     }
 

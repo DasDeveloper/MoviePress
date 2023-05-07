@@ -1,17 +1,11 @@
 package com.dasdeveloper.moviepress.Model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import com.dasdeveloper.moviepress.Model.enums.Role;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Document(collection = "users")
 public class User {
 
@@ -21,13 +15,15 @@ public class User {
     private String lastName;
     private String email;
     private String password;
+    private String role;
 
-    public User(String firstName, String lastName, String email, String password){
+    public User(String firstName, String lastName, String email, String password, String role){
 
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
 

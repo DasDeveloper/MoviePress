@@ -23,9 +23,18 @@ public class UserService {
 
     }
 
+    public Optional<User> checkIfUserAlreadyExists(String email){
+
+        return userRepository.findByEmail(email);
+    }
+
+
     public void createUser (User newUser){
 
+
+
         userRepository.save(newUser);
+
 
     }
 
