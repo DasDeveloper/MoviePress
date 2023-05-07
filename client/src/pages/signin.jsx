@@ -1,4 +1,5 @@
 import "../css/signin.css"
+import {Link} from "react-router-dom"
 
 
 const Signin = () =>{
@@ -16,7 +17,7 @@ const Signin = () =>{
                     <input placeholder="Enter email" name="email"/>
                     <label for="password">Password</label>
                     <input placeholder="Enter password" type="password" name="password"/>
-                    <div className="header">Don't have an account? <href> Sign Up</href> </div>
+                    <div className="header">Don't have an account? <Link to="/signup">Sign Up</Link> </div>
                     <button> Sign In</button>
                 
                 </div>

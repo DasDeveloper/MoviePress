@@ -1,19 +1,65 @@
-import { useState } from "react";
-import "../css/signup.css"
-import axios from "axios"
+import {useEffect, useState } from "react";
+import "../css/signup.css";
+import axios from "axios";
+import Swal from 'sweetalert2';
+import {useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
+
 
 const Signup = () =>{
 
-    const [firstName, setFirstName] = useState();
-    const [lastName, setLastName] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [role, setRole] = useState("User");
+    const [isEmailAlreadyUsed, setEmailAlreadyUsed] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect( () =>{
+
+    }, [isEmailAlreadyUsed])
 
     const onSubmit = () => {
 
-        const User = axios.get(`http://localhost:8080/api/users/check/${email}`)
-        console.log(User)
+        if(firstName.length === 0 || lastName.length===0 || email.length===0 || password.length===0){
+            Swal.fire({
+                title:"Please fill all the required fields!"
+            })
+            return;
+        }
+        
+        axios.get(`http://localhost:8080/api/users/check/${email}`).then(data =>{
+            if(data===null){
+                setEmailAlreadyUsed(false);
+            }
+            else{
+                setEmailAlreadyUsed(true);
+            }
+        })
+        if(isEmailAlreadyUsed){
+            Swal.fire({
+                title:"Email is already used"
+            })
+            return;
+        }
+        else{
+            axios.post(`http://localhost:8080/api/users/create`, {
+                firstName: firstName,
+                lastName:lastName,
+                email:email,
+                password:password,
+                role:role
+            }).then( ()=>{
+                Swal.fire({
+                    title:"Successfully created account!"
+                })
+                navigate("/signin")
+                
+            })
+        }
+
+        
     }
 
     return(
@@ -33,8 +79,9 @@ const Signup = () =>{
                 <input placeholder="Enter email" onChange={e => setEmail(e.target.value)} name="email"/>
                 <label for="password">Password</label>
                 <input placeholder="Enter password" onChange={e => setPassword(e.target.value)} type="password" name="password"/>
+                <div className="header">Already have an account? <Link to="/signin">Sign In</Link> </div>
 
-                <button> Sign Up</button>
+                <button onClick={onSubmit}> Sign Up</button>
 
             </div>
 
