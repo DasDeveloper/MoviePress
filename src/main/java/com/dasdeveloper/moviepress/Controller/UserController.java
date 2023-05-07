@@ -25,7 +25,7 @@ public class UserController {
         return new ResponseEntity<Optional<User>>(userService.getUser(id),HttpStatus.OK);
     }
 
-    @GetMapping(path="/{email}", produces="application/json")
+    @GetMapping(path="/check/{email}", produces="application/json")
     public ResponseEntity<Optional<User>> checkIfUserAlreadyExists(@PathVariable String email){
 
         return new ResponseEntity<Optional<User>>(userService.checkIfUserAlreadyExists(email.toLowerCase()), HttpStatus.OK);
@@ -34,13 +34,11 @@ public class UserController {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createUser(@RequestBody User newUser){
+    public String createUser(@RequestBody User newUser){
 
-        // if(userService.checkIfUserAlreadyExists(newUser.getEmail()).isEmpty()) {
-            userService.createUser(newUser);
-            // return "User successfully created.";
-        // }
-        // return "User already exists";
+        userService.createUser(newUser);
+        return "User successfully created.";
+
 
     }
 
