@@ -44,7 +44,7 @@ const Signup = () =>{
             return;
         }
         else{
-            axios.post(`http://localhost:8080/api/users/create`, {
+            axios.post(`http://localhost:8080/api/users/auth/signup`, {
                 firstName: firstName,
                 lastName:lastName,
                 email:email,

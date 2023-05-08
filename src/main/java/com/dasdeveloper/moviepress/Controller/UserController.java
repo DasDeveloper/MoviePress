@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import java.util.Optional;
 
@@ -34,11 +33,11 @@ public class UserController {
     }
 
 
-    @PostMapping("/create")
+    @PostMapping("/auth/signup")
     @ResponseStatus(HttpStatus.CREATED)
-    public String createUser(@RequestBody User newUser){
+    public String signUp(@RequestBody User newUser){
 
-        userService.createUser(newUser);
+        userService.signUp(newUser);
         return "User successfully created.";
 
 
