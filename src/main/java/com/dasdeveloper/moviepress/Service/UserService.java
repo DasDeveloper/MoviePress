@@ -4,6 +4,7 @@ import com.dasdeveloper.moviepress.Model.User;
 import com.dasdeveloper.moviepress.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.Query;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -14,6 +15,7 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+    private PasswordEncoder passwordEncoder;
 
 
 
@@ -31,7 +33,8 @@ public class UserService {
 
     public void createUser (User newUser){
 
-
+        String encoredPassword = passwordEncoder.encode(newUser.getPassword());
+        newUser.setPassword(encoredPassword);
 
         userRepository.save(newUser);
 
