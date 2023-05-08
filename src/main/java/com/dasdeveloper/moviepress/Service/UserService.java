@@ -2,8 +2,12 @@ package com.dasdeveloper.moviepress.Service;
 
 import com.dasdeveloper.moviepress.Model.User;
 import com.dasdeveloper.moviepress.Repository.UserRepository;
+import com.mongodb.annotations.Beta;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.Query;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +15,12 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
+
 public class UserService {
 
     @Autowired
     private UserRepository userRepository;
-    private PasswordEncoder passwordEncoder;
+    
 
 
 
@@ -33,8 +38,6 @@ public class UserService {
 
     public void createUser (User newUser){
 
-        String encoredPassword = passwordEncoder.encode(newUser.getPassword());
-        newUser.setPassword(encoredPassword);
 
         userRepository.save(newUser);
 
