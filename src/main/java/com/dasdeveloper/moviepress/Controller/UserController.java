@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api")
 @CrossOrigin
 public class UserController {
 
@@ -26,7 +26,7 @@ public class UserController {
         return new ResponseEntity<Optional<User>>(userService.getUser(id),HttpStatus.OK);
     }
 
-    @GetMapping(path="/check/{email}", produces="application/json")
+    @GetMapping(path="/users/check/{email}", produces="application/json")
     public ResponseEntity<Optional<User>> checkIfUserAlreadyExists(@PathVariable String email){
 
         return new ResponseEntity<Optional<User>>(userService.checkIfUserAlreadyExists(email.toLowerCase()), HttpStatus.OK);
@@ -37,9 +37,11 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public String signUp(@RequestBody User newUser){
 
-        userService.signUp(newUser);
-        return "User successfully created.";
-
+        if(userService.checkIfUserAlreadyExists(newUser.getEmail()).isEmpty()){
+            userService.signUp(newUser);
+            return "User successfully created.";
+        }
+        return null;
 
     }
 
