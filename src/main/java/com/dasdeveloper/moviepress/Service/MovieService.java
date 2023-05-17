@@ -21,8 +21,24 @@ public class MovieService {
         return movieRepository.findById(id);
     }
 
+    public Optional<Movie> getMovieByMovieId(String movieId){
+
+        return movieRepository.findByMovieId(movieId);
+    }
+
     public List<Movie> getAllMovies(){
 
         return movieRepository.findAll();
     }
+
+    public Optional<Movie> getMovieByTitle(String title){
+
+        return movieRepository.findByTitle(title);
+    }
+
+
+    public void createNewMovie(Movie newMovie){
+        movieRepository.save(newMovie);
+    }
+
 }
