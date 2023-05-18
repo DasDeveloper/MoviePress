@@ -25,7 +25,7 @@ function App() {
             path="/signin"
             element={
               <>
-              <Header/><Signin/><Footer/>
+              <Header/><Signin/>
               </>
             }
           ></Route>
@@ -34,7 +34,7 @@ function App() {
             path="/signup"
             element={
               <>
-              <Header/><Signup/><Footer/>
+              <Header/><Signup/>
               </>
             }
           ></Route>
