@@ -21,9 +21,7 @@ const Navbar = () =>{
                 <p className="logo">MoviePress</p>
             </div>
 
-            <div className='search'>
-                <input type="textbox" placeholder='Search movies'></input>
-            </div>
+            
             <div className='right'>
             
                 <button onClick={redirectToSignIn}> Sign In</button>

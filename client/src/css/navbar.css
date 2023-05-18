@@ -3,8 +3,8 @@
 .navbar{
     display: flex;
     flex-direction: row;
-    background-color: #006dd8;
     height: 120px;
+    background: var(--color-bg);
 
 }
 .navbar .left{
@@ -23,19 +23,7 @@
     margin-right: 50px;
 }
 
-.navbar .search {
 
-    /* border: 2px black solid; */
-    width: 1000px;
-}
-
-.navbar .search input{
-    width: 100%;
-    height: 40px;
-    margin-top: 40px;
-    margin-left: 50px;
-    border-radius: 5px;
-}
 
 .navbar .right {
 

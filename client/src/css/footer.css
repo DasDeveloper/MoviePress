@@ -4,7 +4,7 @@
     bottom: 0;
     width: 100%;
     height: 100px; 
-    background-color: #006dd8;
+    background: var(--color-bg);
     text-align: center;
     font-size: 25px;
 
