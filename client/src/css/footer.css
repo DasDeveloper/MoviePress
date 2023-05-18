@@ -9,6 +9,10 @@
     font-size: 25px;
 
 }
+
 .footer p {
     color: white;
+    margin-top: 0;
+    /* position: absolute;
+    bottom: 0; */
 }
