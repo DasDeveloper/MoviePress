@@ -16,11 +16,11 @@ const Signup = () =>{
     const [isEmailAlreadyUsed, setEmailAlreadyUsed] = useState(false);
     const navigate = useNavigate();
 
-    useEffect( () =>{
+    // useEffect( () =>{
 
-    }, [isEmailAlreadyUsed])
+    // }, [isEmailAlreadyUsed])
 
-    const onSubmit = () => {
+    const onSubmit = async () => {
 
         if(firstName.length === 0 || lastName.length===0 || email.length===0 || password.length===0){
             Swal.fire({
@@ -29,22 +29,16 @@ const Signup = () =>{
             return;
         }
         
-        axios.get(`http://localhost:8080/api/users/check/${email}`).then(data =>{
-            if(data===null){
-                setEmailAlreadyUsed(false);
-            }
-            else{
-                setEmailAlreadyUsed(true);
-            }
-        })
-        if(isEmailAlreadyUsed){
+      const isAlreadyUsed =  await axios.get(`http://localhost:8080/api/users/check/${email}`);
+      
+        if(isAlreadyUsed.data !=null){
             Swal.fire({
                 title:"Email is already used"
             })
-            return;
+            
         }
         else{
-            axios.post(`http://localhost:8080/api/users/auth/signup`, {
+            await axios.post(`http://localhost:8080/api/auth/signup`, {
                 firstName: firstName,
                 lastName:lastName,
                 email:email,

@@ -35,14 +35,9 @@ public class UserController {
 
     @PostMapping("/auth/signup")
     @ResponseStatus(HttpStatus.CREATED)
-    public String signUp(@RequestBody User newUser){
+    public void signUp(@RequestBody User newUser){
 
-        if(userService.checkIfUserAlreadyExists(newUser.getEmail()).isEmpty()){
             userService.signUp(newUser);
-            return "User successfully created.";
-        }
-        return null;
-
     }
 
 
