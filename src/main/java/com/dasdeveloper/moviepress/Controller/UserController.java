@@ -33,12 +33,12 @@ public class UserController {
     }
 
 
-    @PostMapping("/auth/signup")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void signUp(@RequestBody User newUser){
-
-            userService.signUp(newUser);
-    }
+//    @PostMapping("/auth/signup")
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public void signUp(@RequestBody User newUser){
+//
+//            userService.signUp(newUser);
+//    }
 
 
 
