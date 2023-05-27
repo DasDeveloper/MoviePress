@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 @CrossOrigin( origins = "http://localhost:3000")
 public class UserController {
 
@@ -26,7 +26,7 @@ public class UserController {
         return new ResponseEntity<Optional<User>>(userService.getUser(id),HttpStatus.OK);
     }
 
-    @GetMapping(path="/users/check/{email}", produces="application/json")
+    @GetMapping(path="/check/{email}", produces="application/json")
     public ResponseEntity<Optional<User>> checkIfUserAlreadyExists(@PathVariable String email){
 
         return new ResponseEntity<Optional<User>>(userService.checkIfUserAlreadyExists(email.toLowerCase()), HttpStatus.OK);
