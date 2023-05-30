@@ -18,14 +18,6 @@ public class MoviepressApplication {
 
 	}
 
-//	@Bean
-//	CommandLineRunner runner(UserRepository userRepository){
-//
-//		return args -> {
-//			User user = new User("Rohan", "Das", "commandliner@hotmail.com","runner", Role.USER);
-//			userRepository.insert(user);
-//		};
-//	}
 
 
 }
