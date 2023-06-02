@@ -7,7 +7,6 @@ import com.dasdeveloper.moviepress.Model.User;
 import com.dasdeveloper.moviepress.Model.enums.Role;
 import com.dasdeveloper.moviepress.Service.SessionService;
 import com.dasdeveloper.moviepress.Service.UserService;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
