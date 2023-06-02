@@ -24,6 +24,10 @@ public class UserService {
         return userRepository.findById(id);
 
     }
+    public Optional<User> findUserByEmail(String email){
+
+        return userRepository.findByEmail(email);
+    }
 
     public Optional<User> checkIfUserAlreadyExists(String email){
 
