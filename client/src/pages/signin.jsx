@@ -1,8 +1,41 @@
+import { useState } from "react"
+import axios from "axios"
+import Swal from "sweetalert2"
 import "../css/signin.css"
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 
 
 const Signin = () =>{
+
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const navigate = useNavigate();
+
+
+    const onSubmit = async () =>{
+
+       const res = await axios.post(`http://localhost:8080/api/auth/signin`, {
+            email:email,
+            password:password
+        });
+
+        
+        if(res.data.length ===0){
+            Swal.fire({
+                title:"Wrong credentials!"
+            })
+            return;
+        }
+        
+        localStorage.setItem("sessionID", res.data.id)
+
+        Swal.fire({
+            title:"Welcome!"
+        })
+        navigate("/");
+        return;
+
+    }
 
     return (
         <div className="signin_container">
@@ -16,11 +49,11 @@ const Signin = () =>{
                     </div>
                     
                     <label for="email">Email</label>
-                    <input placeholder="Enter email" name="email"/>
+                    <input placeholder="Enter email"  onChange={e =>{setEmail(e.target.value)}} name="email"/>
                     <label for="password">Password</label>
-                    <input placeholder="Enter password" type="password" name="password"/>
+                    <input placeholder="Enter password" type="password"  onChange={e =>{setPassword(e.target.value)}} name="password"/>
                     <div className="header">Don't have an account? <Link to="/signup">Sign Up</Link> </div>
-                    <button> Sign In</button>
+                    <button onClick={onSubmit}> Sign In</button>
                 
                 </div>
             

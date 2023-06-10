@@ -16,6 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin( origins = "http://localhost:3000")
 public class AuthController {
 
     @Autowired
@@ -34,14 +35,14 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<Session> signIn(@RequestBody LoginRequest request){
+    public Session signIn(@RequestBody LoginRequest request){
 
-        System.out.println(request);
+//        System.out.println(request);
 
         Optional<User> user = userService.findUserByEmail(request.getEmail());
 
         if(user.isEmpty()){
-            return ResponseEntity.status(401).body(null);
+            return null;
         }
 
 
@@ -55,9 +56,9 @@ public class AuthController {
 
             sessionService.createSession(session);
 
-            return ResponseEntity.ok(session);
+            return session;
         }
-        return ResponseEntity.status(401).body(null);
+        return null;
 
     }
 

@@ -15,7 +15,7 @@ public class Session {
     @Id
     private String id;
 
-    @Indexed(name="expireAtIndex", expireAfterSeconds = 86400)
+    @Indexed(expireAfterSeconds = 86400)
     private LocalDateTime expireAt;
     private String userEmail;
     private String userId;
