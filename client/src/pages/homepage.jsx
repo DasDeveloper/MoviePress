@@ -3,7 +3,8 @@ import '../css/homepage.css'
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-// import fetchSession from '../util/fetchSession';
+import Movie from '../components/movie';
+import Footer from "../components/footer"
 
 
 const Homepage = () =>{
@@ -48,17 +49,25 @@ const Homepage = () =>{
     
 
     return (
+        
         <div className="homepage">
             
             d
             <div className="text-category">Latest movies</div>
-            <div className="latest-Movies">
-
+            
+            <div className="latest-movies">
+                <Movie/> <Movie/>
             </div>
             <div className="text-category">Highest Rating</div>
+            <div className="highest-rating-movies">
+                <Movie/> <Movie/>
+            </div>
 
-            
+            <Footer></Footer>
         </div>
+        
+       
+        
     )
 }
 

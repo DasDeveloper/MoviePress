@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+}
+
+.movieComponent{
+    margin: 35px;
+}
+
+.border{
+    border: 3px white solid;
+     width: 250px;
+     /* margin: 35px; */
+     height: 400px;
+     padding: 10px;
+}
+
+.details-text{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}

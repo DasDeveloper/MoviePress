@@ -1,7 +1,7 @@
 .homepage{
     
     background: var(--color-bg);
-    height: 100vh;
+    height: 100%;
 
 }
 
@@ -10,4 +10,14 @@
     margin-left: 35px;
     font-size: 30px;
     margin-top: 50px;
+}
+
+.latest-movies{
+    display: flex;
+    flex-direction: row;
+}
+
+.highest-rating-movies{
+    display: flex;
+    flex-direction: row;
 }

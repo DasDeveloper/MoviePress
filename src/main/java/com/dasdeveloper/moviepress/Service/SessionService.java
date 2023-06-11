@@ -27,4 +27,8 @@ public class SessionService {
 
     }
 
+    public void deleteSession(String id){
+        sessionRepository.deleteById(id);
+    }
+
 }

@@ -1,32 +1,36 @@
-// import axios from "axios";
-// import { Navigate } from "react-router-dom";
-// import Signin from "../pages/signin";
+    // const navigate = useNavigate();
 
-// export default async function fetchSession(){
+    // useEffect(()=>{
+    //     fetchSession();
+    // }, [])
 
-//     const sessionID = localStorage.getItem("sessionID");
+    // const fetchSession = async () =>{
 
-//             if(sessionID === null){
-//                 return <Signin/>
+    //     const sessionID = localStorage.getItem("sessionID");
+        
+
+    //         if(sessionID === null){
+
+    //             navigate("/signin");
+
+    //         }
+
+    //          await axios.get(`http://localhost:8080/api/session/${sessionID}`).then((res)=>{
 
 
-//             }
-
-//              await axios.get(`http://localhost:8080/api/session/${sessionID}`).then((res)=>{
-
-
-//              console.log(res)
+    //          console.log(res)
              
-//               sessionStorage.setItem("userID",res.data.userId);
-//               sessionStorage.setItem("userRole",res.data.userRole);
-//               sessionStorage.setItem("userEmail",res.data.userEmail);
+    //           sessionStorage.setItem("userID",res.data.userId);
+    //           sessionStorage.setItem("userRole",res.data.userRole);
+    //           sessionStorage.setItem("userEmail",res.data.userEmail);
+
             
-//             }).catch(() =>{
-//               localStorage.clear();
-//               sessionStorage.clear();
+    //         }).catch(() =>{
+    //           localStorage.clear();
+    //           sessionStorage.clear();
 
-//               return <Navigate to="/signin"></Navigate>
+    //           navigate("/signin")
               
-//             })
+    //         })
 
-// }
+    // }
