@@ -22,7 +22,7 @@ public class Movie {
     private long movieId;
     private String title;
     private String director;
-    private double overallRating;
+    private float rating;
     private List<Review> reviewsList;
     private String url;
     

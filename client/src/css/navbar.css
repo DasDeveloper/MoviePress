@@ -5,6 +5,7 @@
     flex-direction: row;
     height: 120px;
     background: var(--color-bg);
+    /* border: 4px red solid; */
 
 }
 .navbar .left{
@@ -14,6 +15,7 @@
 }
 
 .navbar .left .logo{
+    display: inline;
     padding: 10px;
     font-size: 30px;
     color:white;
@@ -21,6 +23,7 @@
     width: 100px;
     margin-left: 30px;
     margin-right: 50px;
+    /* border: 5px red solid; */
 }
 
 
@@ -38,11 +41,11 @@
     
     width: 100px;
     height: 40px;
-    margin-top: 40px;
     margin-right: 10px;
     border-radius: 5px;
     border-color: white;
     background-color: white;
+    bottom: 20px;
 }
 
 

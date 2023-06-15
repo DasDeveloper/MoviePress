@@ -9,14 +9,28 @@
 .border{
     border: 3px white solid;
      width: 250px;
-     /* margin: 35px; */
      height: 400px;
      padding: 10px;
 }
+.poster{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+
+    
+}
+
 
 .details-text{
     color: white;
+    font-size: large;
     display: flex;
     flex-direction: column;
     margin-top: 10px;
+    
+    
+}
+.rating{
+    display: flex;
+    flex-direction: row;
 }

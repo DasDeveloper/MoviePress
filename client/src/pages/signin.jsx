@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import axios from "axios"
 import Swal from "sweetalert2"
 import "../css/signin.css"
@@ -10,6 +10,17 @@ const Signin = () =>{
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const navigate = useNavigate();
+    const sessionID = localStorage.getItem("sessionID");
+    const userID = sessionStorage.getItem("userID");
+
+    useEffect(()=>{
+
+        if(sessionID && userID){
+            navigate("/");
+        }
+        
+
+    },[])
 
 
     const onSubmit = async () =>{

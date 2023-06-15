@@ -10,6 +10,7 @@ import Signup from './pages/signup';
 import Header from './components/header';
 import { useEffect, useState } from 'react';
 import GlobalContext from './util/globalContext';
+import MoviePage from './pages/moviepage';
 
 
 
@@ -45,6 +46,17 @@ function App() {
             element={
               <>
               <Header/><Signup/> 
+              
+              
+              </>
+            }
+          ></Route>
+
+          <Route
+            path="/movie"
+            element={
+              <>
+              <MoviePage/>
               
               
               </>

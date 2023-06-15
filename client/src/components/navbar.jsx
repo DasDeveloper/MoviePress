@@ -32,7 +32,7 @@ const Navbar = () =>{
                 sessionStorage.clear();
 
                 Swal.fire({
-                    title:"Something went wrong!"
+                    title:"Logged out!"
                 })
                 navigate("/signin")
             })
@@ -49,7 +49,6 @@ const Navbar = () =>{
             
             <div className='right'>
             
-                
                 
                 {sessionID ? <button onClick={logout}> Logout</button> :<><button onClick={redirectToSignIn}> Sign In</button> <button onClick={redirectToSignUp}> Sign up</button></>}
                 

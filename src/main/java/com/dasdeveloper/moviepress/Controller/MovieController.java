@@ -3,6 +3,8 @@ package com.dasdeveloper.moviepress.Controller;
 import com.dasdeveloper.moviepress.Model.Movie;
 import com.dasdeveloper.moviepress.Service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,10 +34,17 @@ public class MovieController {
     }
 
     @PostMapping("/add")
-    public void addNewMovie(Movie newMovie){
+    public void addNewMovie(@RequestBody Movie newMovie){
 
         movieService.createNewMovie(newMovie);
     }
+
+    @GetMapping("/latest")
+    public ResponseEntity<List<Movie>> getLatest(){
+
+        return ResponseEntity.ok(movieService.findLatestMovies());
+    }
+
 
 
 
