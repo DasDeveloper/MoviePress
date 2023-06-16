@@ -45,6 +45,12 @@ public class MovieController {
         return ResponseEntity.ok(movieService.findLatestMovies());
     }
 
+    @GetMapping("/highestrating")
+    public ResponseEntity<List<Movie>> getHighestRating(){
+
+        return ResponseEntity.ok(movieService.findHighestRating());
+    }
+
 
 
 

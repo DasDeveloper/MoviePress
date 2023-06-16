@@ -5,6 +5,7 @@ import com.dasdeveloper.moviepress.Model.Movie;
 import com.dasdeveloper.moviepress.Repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
@@ -62,6 +63,11 @@ public class MovieService {
     }
 
 
+    public List<Movie> findHighestRating() {
 
 
+
+       return movieRepository.findAll(Sort.by(Sort.Direction.DESC, "rating")).subList(0,latestNumber);
+
+    }
 }

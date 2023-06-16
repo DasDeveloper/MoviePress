@@ -1,18 +1,23 @@
 import "../css/movie.css"
-import StarIcon from '@mui/icons-material/Star';
-import MoviePage from "../pages/moviepage";
-import Navigate, { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react";
 
 
-const Movie = ({movieDetails})=>{
+//-----------------------NOT BEING USED RIGHT NOW----------------------- TO BE FIXED
+const Movie = (movieDetails)=>{
 
     const navigate = useNavigate();
+    
 
     const redirectToMoviePage = () =>{
 
         navigate("/movie")
         
     }
+    useEffect(()=>{
+
+    }, [])
+    
 
     return(
         <div className="movieComponent">
@@ -20,8 +25,8 @@ const Movie = ({movieDetails})=>{
                 <img className="poster" onClick={redirectToMoviePage}src={require("../images/BlackPantherPoster.jpeg")} alt="poster"/>
             </div>
             <div className="details-text">
-                Title
-                <div className="rating"><StarIcon/> Rating: </div>
+               
+                <div className="rating"> Rating: </div>
                 
             </div>
         </div>

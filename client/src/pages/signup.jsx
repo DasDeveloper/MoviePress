@@ -1,4 +1,4 @@
-import {useEffect, useState } from "react";
+import {useState} from "react";
 import "../css/signup.css";
 import axios from "axios";
 import Swal from 'sweetalert2';
