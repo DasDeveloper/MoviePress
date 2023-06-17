@@ -25,5 +25,7 @@ public class Movie {
     private float rating;
     private List<Review> reviewsList;
     private String url;
+    private String description;
+    private List<String> categories;
     
 }

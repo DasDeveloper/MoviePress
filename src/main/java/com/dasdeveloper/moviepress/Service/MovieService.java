@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class MovieService {
     private MovieRepository movieRepository;
     @Autowired
     private MongoTemplate template;
-    private int latestNumber = 6;
+    private int latestNumber = 4;
 
 
     public Optional<Movie> getMovie (String id){
@@ -30,7 +31,7 @@ public class MovieService {
         return movieRepository.findById(id);
     }
 
-    public Optional<Movie> getMovieByMovieId(String movieId){
+    public Optional<Movie> getMovieByMovieId(int movieId){
 
         return movieRepository.findByMovieId(movieId);
     }

@@ -1,7 +1,9 @@
 package com.dasdeveloper.moviepress.Controller;
 
 import com.dasdeveloper.moviepress.Model.Movie;
+import com.dasdeveloper.moviepress.Repository.MovieRepository;
 import com.dasdeveloper.moviepress.Service.MovieService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +23,9 @@ public class MovieController {
 
 
     @GetMapping(path="/{movieId}", produces="application/json")
-    public Optional<Movie> getMovie(@PathVariable String movieId){
+    public ResponseEntity<Optional<Movie>> getMovie(@PathVariable int movieId){
 
-        return movieService.getMovieByMovieId(movieId);
+        return ResponseEntity.ok(movieService.getMovieByMovieId(movieId));
     };
 
     @GetMapping("/all")

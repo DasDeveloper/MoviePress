@@ -5,6 +5,8 @@ import Movie from '../components/movie';
 import Footer from "../components/footer"
 import { useNavigate } from 'react-router-dom';
 import {AiTwotoneStar} from 'react-icons/ai'
+import { Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Homepage = () =>{
 
@@ -54,11 +56,8 @@ const Homepage = () =>{
         setHighestRatingmovies(response.data);
     }
     
-    const redirectToMoviePage = () =>{
-
-        navigate("/movie")
-        
-    }
+    
+    
 
     return (
         
@@ -72,7 +71,11 @@ const Homepage = () =>{
                     return(
                     <div className="movieComponent">
                         <div className="border">
-                            <img className="poster" onClick={redirectToMoviePage}src={require("../images/BlackPantherPoster.jpeg")} alt="poster"/>
+                            <Link to={`/movie/${movie.movieId}`} state={movie}>
+                                
+                                <img className="poster" src={require("../images/BlackPantherPoster.jpeg")} alt="poster"/>
+                            </Link>
+                            
                         </div>
                         <div className="details-text">
                         {movie.title}
@@ -80,6 +83,7 @@ const Homepage = () =>{
 
                                 <span>
                                      <AiTwotoneStar className="star"/> {movie.rating}/5 
+
                                 </span>
                             
                             </div>
@@ -95,11 +99,17 @@ const Homepage = () =>{
                     return(
                     <div className="movieComponent">
                         <div className="border">
-                            <img className="poster" onClick={redirectToMoviePage}src={require("../images/BlackPantherPoster.jpeg")} alt="poster"/>
+                            <img className="poster" src={require("../images/BlackPantherPoster.jpeg")} alt="poster"/>
                         </div>
                         <div className="details-text">
                         {movie.title}
-                            <div className="rating"> <AiTwotoneStar className="star"/> {movie.rating}/5 </div>
+                            <div className="rating"> 
+
+                                <span>
+                                     <AiTwotoneStar className="star"/> {movie.rating}/5 
+                                </span>
+
+                            </div>
                     </div>
                 </div>)       
                 })}

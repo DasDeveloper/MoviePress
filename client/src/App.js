@@ -6,6 +6,7 @@ import Signin from './pages/signin';
 import Signup from './pages/signup';
 import Header from './components/header';
 import MoviePage from './pages/moviepage';
+import PageNotFound from './pages/pageNotFound';
 
 
 
@@ -51,8 +52,17 @@ function App() {
             path="/movie"
             element={
               <>
-              <MoviePage/>
+              <PageNotFound/>
               
+              </>
+            }
+          ></Route>
+
+          <Route
+            path="/movie/:movidId"
+            element={
+              <>
+              <Navbar/><MoviePage/>
               
               </>
             }
