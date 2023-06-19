@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import '../css/homepage.css'
 import axios from "axios";
-import Movie from '../components/movie';
 import Footer from "../components/footer"
 import { useNavigate } from 'react-router-dom';
-import {AiTwotoneStar} from 'react-icons/ai'
-import { Navigate } from 'react-router-dom';
+import {AiTwotoneStar} from 'react-icons/ai';
+
+
 import { Link } from 'react-router-dom';
 
 const Homepage = () =>{
@@ -99,7 +99,13 @@ const Homepage = () =>{
                     return(
                     <div className="movieComponent">
                         <div className="border">
-                            <img className="poster" src={require("../images/BlackPantherPoster.jpeg")} alt="poster"/>
+
+                            <Link to={`/movie/${movie.movieId}`} state={movie}>
+                                    
+                                <img className="poster" src={require("../images/BlackPantherPoster.jpeg")} alt="poster"/>
+                                
+                            </Link>
+                            
                         </div>
                         <div className="details-text">
                         {movie.title}
