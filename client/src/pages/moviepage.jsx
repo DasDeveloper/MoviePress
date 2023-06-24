@@ -5,6 +5,7 @@ import axios from "axios";
 import {AiTwotoneStar} from 'react-icons/ai';
 import PageNotFound from "./pageNotFound";
 import ModalVideo from "react-modal-video";
+import ReviewModal from "../components/reviewModal";
 import "react-modal-video/scss/modal-video.scss"
 
 const MoviePage = ()=>{
@@ -14,26 +15,32 @@ const MoviePage = ()=>{
     const movieId = location.pathname.substring(7);
     const [valid, setValid] = useState(false);
     const [categories, setCategories] = useState([]);
-    const [isOpen, setOpen] = useState(false);
-    const videoId = movie.url;
+    const [isVideoModalOpen, setVideoModalOpen] = useState(false);
+    const [isReviewModalOpen, setReviewModalOpen] = useState(false);
+    const [videoId, setVideoId] = useState("None");
+    // const [isAlreadyReviewedState, setIsAlreadyReviewedState] = useState(false);
+    
 
 
 
     useEffect(()=>{
         fetchMovie();
         fetchSession();
+        // isAlreadyReviewed();
        
       
     }, [location.pathname])
 
     const fetchMovie =  async () =>{
-        console.log(videoId);
 
             const response = await axios.get(`http://localhost:8080/api/movies/${movieId}`);
             if(response!==null){
                 setMovie(response.data)
                 if(response.data.categories !== null){
                     setCategories(response.data.categories)
+                }
+                if(response.data.url!== null && movie === null){
+                    setVideoId(response.data.url)
                 }
             
                 setValid(true);
@@ -61,14 +68,27 @@ const MoviePage = ()=>{
                 })}
     
         }
-       
+
+        // const isAlreadyReviewed = async () =>{
         
+        //     const userID = sessionStorage.getItem("userID");
 
-	
-			
-		
+        //     if(userID){
 
+        //         await axios.get(`http://localhost:8080/api/reviews/review/${movieId}/${userID}`).then((data) =>{
+
+        //             if(data){
+        //                 setIsAlreadyReviewedState(true);
+        //             }
+
+        //         }).catch(()=>{
+        //             setIsAlreadyReviewedState(false);
+        //         });
+                
+        //     }
     
+        // }
+       
     
     return(
         
@@ -86,13 +106,23 @@ const MoviePage = ()=>{
                 <div className="movie-button">
                 
                     
-                    <button type="button" onClick={()=> setOpen(true)} class="btn btn-outline-danger">Watch Trailer</button>
+                    <button type="button" onClick={()=> setVideoModalOpen(true)} class="btn btn-outline-danger">Watch Trailer</button>
 
-                    <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={movie.url} onClose={() => setOpen(false)} />
+                    <ModalVideo channel='youtube' autoplay isOpen={isVideoModalOpen} videoId={movie.url} onClose={() => setVideoModalOpen(false)} />
                     
 			
+                    {sessionStorage.getItem("userID") && localStorage.getItem("sessionID") ? (
+                    <button type="button" onClick={()=> setReviewModalOpen(true)} class="btn btn-outline-info">Add Review</button>
+                    ):(<button type="button" class="btn btn-outline-info" disabled>Login to Review Movie</button>)
+                    } 
                     
-                    <button type="button" class="btn btn-outline-info">Add Review</button>
+                    
+                    {/* {isAlreadyReviewedState ? (<button type="button" class="btn btn-outline-info" disabled>You've already reviewed this movie</button>):(<></>)}    */}
+
+                    <ReviewModal movie={movie} isOpen={isReviewModalOpen} onClose={() =>{setReviewModalOpen(false)}}/>
+
+                        
+                    
 
                 </div>
 
@@ -103,20 +133,14 @@ const MoviePage = ()=>{
                     
                     {categories.map((category) =>{
                         
-                        if(category==="Action"){
-                            return <span class="badge text-bg-primary">Action</span>
-                        }
-                        if(category ==="Comedy"){
-
-                            return<span class="badge text-bg-secondary">Comedy</span>
-                        }
+                        return <span class="badge text-bg-primary">{category}</span>
 
                     })}
                 
                 </div>
 
                 <div className="movie-description">
-                        {/* Random description... */}
+
                         {movie.description}
                 </div>
                 

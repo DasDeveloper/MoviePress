@@ -23,15 +23,12 @@
     width: 100px;
     margin-left: 30px;
     margin-right: 50px;
-    /* border: 5px red solid; */
 }
 
 
 
 .navbar .right {
 
-    /* border: 2px green solid; */
-    width: 100%;
     display: flex;
     justify-content: flex-end;
 }
@@ -41,7 +38,7 @@
     
     width: 100px;
     height: 40px;
-    margin-right: 10px;
+    margin-right: 20px;
     border-radius: 5px;
     border-color: white;
     background-color: white;

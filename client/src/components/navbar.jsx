@@ -2,6 +2,7 @@ import axios from 'axios';
 import '../css/navbar.css'
 import {useNavigate} from "react-router"
 import Swal from 'sweetalert2';
+import { useEffect, useState } from 'react';
 
 const Navbar = () =>{
 
@@ -9,6 +10,7 @@ const Navbar = () =>{
     const userID = sessionStorage.getItem("userID");
     const userEmail = sessionStorage.getItem("userEmail");
     const userRole = sessionStorage.getItem("userRole")
+    const [isLoggedOut, setLoggedOut] = useState(false);
 
     const navigate = useNavigate();
 
@@ -19,6 +21,12 @@ const Navbar = () =>{
     const redirectToSignUp = () =>{
         navigate("/signup");
     }
+    const redirectToHomepage = () =>{
+        navigate("/");
+    }
+    useEffect(() =>{
+
+    }, [isLoggedOut])
 
     const logout = async () =>{
             
@@ -33,7 +41,8 @@ const Navbar = () =>{
 
                 Swal.fire({
                     title:"Logged out!"
-                })
+                });
+                setLoggedOut(true);
                 navigate("/signin")
             })
             

@@ -4,6 +4,7 @@ import axios from "axios";
 import Footer from "../components/footer"
 import { useNavigate } from 'react-router-dom';
 import {AiTwotoneStar} from 'react-icons/ai';
+import Navbar from '../components/navbar';
 
 
 import { Link } from 'react-router-dom';
@@ -62,9 +63,9 @@ const Homepage = () =>{
     return (
         
         <div className="homepage">
+            <Navbar/>
             
-            d
-            <div className="text-category">Latest movies</div>
+            <div className="text-category">Latest Movies</div>
             
             <div className="latest-movies">
                 {latestMovies.map((movie) =>{
@@ -94,6 +95,8 @@ const Homepage = () =>{
             </div>
             <div className="text-category">Highest Rating</div>
             <div className="highest-rating-movies">
+
+                
 
             {highestRatingMovies.map((movie) =>{
                     return(

@@ -23,7 +23,7 @@ function App() {
             path="/"
             element={
               <>
-               <Navbar/><Homepage/>
+               <Homepage/>
               </>
             }
           ></Route>

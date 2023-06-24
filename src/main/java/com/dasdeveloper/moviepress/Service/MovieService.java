@@ -23,7 +23,7 @@ public class MovieService {
     private MovieRepository movieRepository;
     @Autowired
     private MongoTemplate template;
-    private int latestNumber = 4;
+    private int latestNumber = 5;
 
 
     public Optional<Movie> getMovie (String id){
@@ -69,6 +69,16 @@ public class MovieService {
 
 
        return movieRepository.findAll(Sort.by(Sort.Direction.DESC, "rating")).subList(0,latestNumber);
+
+    }
+
+    public void updateRating(int newRating, int movieId) {
+        Optional<Movie> movie = movieRepository.findByMovieId(movieId);
+        if(movie.isPresent()){
+            movie.get().setRating(newRating);
+            movieRepository.save(movie.get());
+
+        }
 
     }
 }

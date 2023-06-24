@@ -1,19 +1,16 @@
 package com.dasdeveloper.moviepress.Repository;
 
-import com.dasdeveloper.moviepress.Model.Movie;
+import com.dasdeveloper.moviepress.Model.Review;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-
 @Repository
-public interface MovieRepository extends MongoRepository<Movie, String> {
+public interface ReviewRepository extends MongoRepository<Review, String> {
 
 
-    Optional<Movie> findByMovieId(int movieId);
-    Optional<Movie> findByTitle(String title);
 
-
+            Optional<Review> findByMovieIdAndUserId(int movieId, String userId);
 }
