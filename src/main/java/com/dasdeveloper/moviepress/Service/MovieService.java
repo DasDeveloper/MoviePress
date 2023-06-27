@@ -45,6 +45,7 @@ public class MovieService {
 
         return movieRepository.findByTitle(title);
     }
+    
 
 
     public void createNewMovie(Movie newMovie){
@@ -79,6 +80,14 @@ public class MovieService {
             movieRepository.save(movie.get());
 
         }
+
+    }
+
+    public List<Movie> getAllMoviesBasedOnRegex(String query) {
+
+        Criteria regex = Criteria.where("title").regex(query, "i");
+        return template.find(new Query().addCriteria(regex), Movie.class);
+
 
     }
 }

@@ -3,7 +3,7 @@
 .navbar{
     display: flex;
     flex-direction: row;
-    height: 120px;
+    max-height: 150px;
     background: var(--color-bg);
     /* border: 4px red solid; */
 
@@ -22,9 +22,7 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     width: 100px;
     margin-left: 30px;
-    margin-right: 50px;
 }
-
 
 
 .navbar .right {
@@ -42,7 +40,7 @@
     border-radius: 5px;
     border-color: white;
     background-color: white;
-    bottom: 20px;
+    /* bottom: 20px; */
 }
 
 

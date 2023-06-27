@@ -1,0 +1,19 @@
+.searchpage{
+    background: var(--color-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+.no-result-found{
+    color: white;
+    font-size: 40px;
+    font: bold;
+    position: relative;
+    left: 45%;
+    margin-top: 300px;
+    
+    
+}
+

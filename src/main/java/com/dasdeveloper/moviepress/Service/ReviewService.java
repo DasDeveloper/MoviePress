@@ -58,6 +58,6 @@ public class ReviewService {
         for(Review review: reviews){
             sum += review.getValue();
         }
-        return sum;
+        return sum/reviews.size();
     }
 }

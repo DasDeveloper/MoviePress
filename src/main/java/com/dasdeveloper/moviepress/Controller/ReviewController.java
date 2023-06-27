@@ -1,4 +1,4 @@
-package com.dasdeveloper.moviepress.Controller.requests;
+package com.dasdeveloper.moviepress.Controller;
 
 import com.dasdeveloper.moviepress.Model.Review;
 import com.dasdeveloper.moviepress.Service.MovieService;

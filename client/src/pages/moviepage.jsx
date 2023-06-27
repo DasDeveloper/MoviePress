@@ -112,7 +112,7 @@ const MoviePage = ()=>{
                     
 			
                     {sessionStorage.getItem("userID") && localStorage.getItem("sessionID") ? (
-                    <button type="button" onClick={()=> setReviewModalOpen(true)} class="btn btn-outline-info">Add Review</button>
+                    <button type="button" onClick={()=> setReviewModalOpen(true)} class="btn btn-outline-info">Review Movie</button>
                     ):(<button type="button" class="btn btn-outline-info" disabled>Login to Review Movie</button>)
                     } 
                     

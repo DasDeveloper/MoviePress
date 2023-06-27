@@ -25,10 +25,11 @@ const Homepage = () =>{
     const fetchSession = async () =>{
 
         const sessionID = localStorage.getItem("sessionID");
+        
     
             if(sessionID!== null){
 
-             await axios.get(`http://localhost:8080/api/session/${sessionID}`).then((res)=>{
+            const response = await axios.get(`http://localhost:8080/api/session/${sessionID}`).then((res)=>{
 
              
               sessionStorage.setItem("userID",res.data.userId);
@@ -43,6 +44,7 @@ const Homepage = () =>{
 
               
             })}
+            
 
     }
 
@@ -55,6 +57,9 @@ const Homepage = () =>{
     const getHighestRatingMovies = async () =>{
         const response = await axios.get('http://localhost:8080/api/movies/highestrating')
         setHighestRatingmovies(response.data);
+    }
+    const getMoviePoster = async (title) =>{
+        return await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query= + ${title}`);
     }
     
     
@@ -97,7 +102,7 @@ const Homepage = () =>{
             <div className="highest-rating-movies">
 
                 
-
+            
             {highestRatingMovies.map((movie) =>{
                     return(
                     <div className="movieComponent">

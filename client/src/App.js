@@ -7,6 +7,8 @@ import Signup from './pages/signup';
 import Header from './components/header';
 import MoviePage from './pages/moviepage';
 import PageNotFound from './pages/pageNotFound';
+import SearchPage from './pages/searchpage';
+import Footer from './components/footer';
 
 
 
@@ -67,6 +69,25 @@ function App() {
               </>
             }
           ></Route>
+          <Route
+            path="/search"
+            element={
+              <>
+              <Navbar/><SearchPage/><Footer/>
+              
+              </>
+            }
+          ></Route>
+          <Route
+            path="*"
+            element={
+              <>
+              <PageNotFound/>
+              
+              </>
+            }
+          ></Route>
+          
 
 
       </Routes>

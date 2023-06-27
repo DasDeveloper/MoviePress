@@ -1,7 +1,7 @@
 .homepage{
     
     background: var(--color-bg);
-    height: 100%;
+    min-height: 100%;
 
 }
 

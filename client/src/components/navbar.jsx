@@ -3,6 +3,7 @@ import '../css/navbar.css'
 import {useNavigate} from "react-router"
 import Swal from 'sweetalert2';
 import { useEffect, useState } from 'react';
+import SearchBar from './SearchBar';
 
 const Navbar = () =>{
 
@@ -55,6 +56,9 @@ const Navbar = () =>{
                 <p className="logo">MoviePress</p>
             </div>
 
+            <div className='center'>
+                <SearchBar/>
+            </div>
             
             <div className='right'>
             
