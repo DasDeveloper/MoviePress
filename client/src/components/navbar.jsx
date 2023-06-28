@@ -25,6 +25,9 @@ const Navbar = () =>{
     const redirectToHomepage = () =>{
         navigate("/");
     }
+    const redirectToAdminPage = () =>{
+        navigate("/admin")
+    }
     useEffect(() =>{
 
     }, [isLoggedOut])
@@ -53,16 +56,17 @@ const Navbar = () =>{
         <div className="navbar">
 
             <div className="left">
-                <p className="logo">MoviePress</p>
+                <p className="logo" onClick={redirectToHomepage}>MoviePress</p>
             </div>
-
+            
+            
             <div className='center'>
                 <SearchBar/>
             </div>
             
             <div className='right'>
             
-                
+                {userRole === 'ADMIN' ? (<button onClick={redirectToAdminPage}>Admin</button>):(<></>)}
                 {sessionID ? <button onClick={logout}> Logout</button> :<><button onClick={redirectToSignIn}> Sign In</button> <button onClick={redirectToSignUp}> Sign up</button></>}
                 
             </div>

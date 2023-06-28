@@ -55,7 +55,7 @@ public class MovieService {
     public List<Movie> findLatestMovies(){
 
         int length = template.findAll(Movie.class).toArray().length;
-        if(length <6){
+        if(length <latestNumber){
             return template.findAll(Movie.class);
         }
 
@@ -89,5 +89,9 @@ public class MovieService {
         return template.find(new Query().addCriteria(regex), Movie.class);
 
 
+    }
+
+    public void deleteMovieByMovieId(int movieId) {
+        movieRepository.deleteByMovieId(movieId);
     }
 }

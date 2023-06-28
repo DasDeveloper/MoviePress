@@ -1,0 +1,72 @@
+.adminpage{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.admin-search-dashboard{
+    border: 5px rgba(2,26,54,1) solid;
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    height: 100vh;
+    text-align: center;
+    
+}
+.admin-search-dashboard-top{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+.admin-search-dashboard input{
+    padding: 10px;
+    font-size: 20px;
+    width: 800px;
+    height: 45px;
+    margin-right: 20px;
+    border-radius: 25px;
+}
+.search-button{
+    height: 45px;
+    border-radius: 25px;
+    width: 70px;
+    text-align: center;
+    background-color:steelblue;
+    color: white;
+    
+}
+
+.admin-search-dashboard-table{
+    padding: 50px;
+    width: 100%;
+    overflow-y: scroll;
+    overflow: hidden;
+}
+.admin-new{
+    border: 5px rgba(2,26,54,1) solid;
+    width: 35%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    height: 100vh;
+    text-align: center;
+
+}
+.admin-new-title{
+    text-align: center;
+    color: black;
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+.admin-new-textfields{
+    display: flex;
+    flex-direction: column;
+}

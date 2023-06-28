@@ -9,6 +9,8 @@ import MoviePage from './pages/moviepage';
 import PageNotFound from './pages/pageNotFound';
 import SearchPage from './pages/searchpage';
 import Footer from './components/footer';
+import AdminPage from './pages/adminpage';
+import AdminProtectedRoute from './pages/adminProtected';
 
 
 
@@ -74,6 +76,15 @@ function App() {
             element={
               <>
               <Navbar/><SearchPage/><Footer/>
+              
+              </>
+            }
+          ></Route>
+          <Route
+            path="/admin"
+            element={
+              <>
+              <AdminProtectedRoute><Navbar/><AdminPage/><Footer/></AdminProtectedRoute>
               
               </>
             }

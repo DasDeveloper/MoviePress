@@ -16,9 +16,9 @@ public interface MovieRepository extends MongoRepository<Movie, String> {
 
     Optional<Movie> findByMovieId(int movieId);
     Optional<Movie> findByTitle(String title);
+    void deleteByMovieId(int movieId);
 
-//    Page<Movie> findByTitle(String title, Pageable pageable);
-//    Page<Movie> findByTitleContainingIgnoreCase(String title, Pageable pageable);
+
 
 
 }

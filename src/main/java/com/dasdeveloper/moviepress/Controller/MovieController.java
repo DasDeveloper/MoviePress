@@ -41,6 +41,14 @@ public class MovieController {
         movieService.createNewMovie(newMovie);
     }
 
+
+    @DeleteMapping("/delete/{movieId}")
+    public ResponseEntity<String> deleteMovieByMovieId(@PathVariable int movieId){
+        movieService.deleteMovieByMovieId(movieId);
+        return ResponseEntity.ok("Deleted movie successfully");
+
+    }
+
     @GetMapping("/latest")
     public ResponseEntity<List<Movie>> getLatest(){
 
