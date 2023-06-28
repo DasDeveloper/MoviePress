@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import "../css/adminpage.css"
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
@@ -8,6 +8,8 @@ import {TextField} from "@mui/material"
 const AdminPage = () => {
 
   const navigate = useNavigate();
+
+  
 
   const [query, setQuery] = useState("");
   const [queryData, setQueryData] = useState([]);
@@ -27,15 +29,23 @@ const AdminPage = () => {
   useEffect(()=>{
     fetchSession()
   }, [])
+
+  useEffect(()=>{
+    getMovieId()
+  })
+
+  
   
 
   const queryDataFunction = async () =>{
+
 
     if(query.length===0){
       setQueryData([])
     }
     
     if(query.length!==0){
+      
     await axios.get(`http://localhost:8080/api/search?query=${query}`).then((response)=>{
       
       setQueryData(response.data);
@@ -76,46 +86,31 @@ const AdminPage = () => {
         })}
 }
 
-  // const handleDeleteMovie = (data) =>{
-    
-  //   const deleteMovie = async () =>{
-  //     await axios.delete(`http://localhost:8080/api/movies/delete/${data.movieId}`)
-  //   }
-  //   deleteMovie();
-  //     Swal.fire({
-  //       title:"You`ve deleted the movie successfully"
-  //     })
-    
-
-  //   Swal.fire({
-  //     title: 'Are you sure?',
-  //     text: "You won't be able to revert this!",
-  //     icon: 'warning',
-  //     showCancelButton: true,
-  //     confirmButtonColor: '#3085d6',
-  //     cancelButtonColor: '#d33',
-  //     confirmButtonText: 'Yes, delete it!'
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       deleteMovie();
-
-  //       Swal.fire(
-  //         'Deleted!',
-  //         'Your file has been deleted.',
-  //         'success'
-  //       )
-  //     }
-      
-  //   })
-  // }
 
   const showNewComponent = () =>{
     
     setShowNew(true);
 
   }
+  const getMovieId = async () =>{
+
+     await axios.get("http://localhost:8080/api/movieId/get").then((response)=>{
+
+     setMovieId(response.data);
+
+
+     })
+
+  }
 
   const submitNewMovie = async () =>{
+
+    if(movieTitle.length===0 || movieDirector.length===0 || movieUrl.length===0){
+      Swal.fire({
+        title:"Please fill up all the fields"
+      })
+      return;
+    }
     const movie = {
       movieId: movieId,
       title:movieTitle,
@@ -130,6 +125,8 @@ const AdminPage = () => {
     setMovieDirector("")
     setMovieCategory("")
     setMovieUrl("")
+
+    await axios.put("http://localhost:8080/api/movieId/update")
 
     Swal.fire({
       title:"Succesfully added a new movie"
@@ -148,7 +145,7 @@ const AdminPage = () => {
     <div className='adminpage'>
         <div className="admin-search-dashboard">
           <div className='admin-search-dashboard-top'>
-            <input type='text' onChange={(e) => {setQuery(e.target.value)}}placeholder='search'/>
+            <input type='text' onChange={(e) =>{setQuery(e.target.value)}}placeholder='search'/>
             <button onClick={showNewComponent}className="search-button"type="button" class="btn btn-primary">New</button>
           </div>
 
@@ -190,8 +187,7 @@ const AdminPage = () => {
             <p className='admin-new-title'>Add new movie</p>
 
             <div className="admin-new-textfields">
-
-              <TextField style = {{width: 600, margin:20}} id="outlined-basic" onChange={e=>{setMovieId(e.target.value)}} margin="normal" label="ID" variant="outlined" />
+              <TextField style = {{width: 600, margin:20}} disabled id="outlined-disabled" label="ID"defaultValue={`${movieId}`}/>
               <TextField style = {{width: 600, margin:20}} id="outlined-basic" onChange={e=>{setMovieTitle(e.target.value)}} margin="normal" label="Title" variant="outlined" />
               <TextField style = {{width: 600, margin:20}} id="outlined-basic" onChange={e=>{setMovieDirector(e.target.value)}} margin="normal" label="Director" variant="outlined" />
               <TextField style = {{width: 600, margin:20}} id="outlined-basic" onChange={e=>{setMovieCategory(e.target.value)}} margin="normal" label="Category" variant="outlined" />
@@ -203,10 +199,7 @@ const AdminPage = () => {
             
               
             </div>
-
             
-            
- 
           </div>
         ):(<></>)}
        

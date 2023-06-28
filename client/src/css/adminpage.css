@@ -47,6 +47,7 @@
     width: 100%;
     overflow-y: scroll;
     overflow: hidden;
+    height: 92%;
 }
 .admin-new{
     border: 5px rgba(2,26,54,1) solid;
@@ -70,3 +71,4 @@
     display: flex;
     flex-direction: column;
 }
+

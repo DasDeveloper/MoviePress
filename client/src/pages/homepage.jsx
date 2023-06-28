@@ -75,7 +75,7 @@ const Homepage = () =>{
             <div className="latest-movies">
                 {latestMovies.map((movie) =>{
                     return(
-                    <div className="movieComponent">
+                    <div key={movie.id} className="movieComponent">
                         <div className="border">
                             <Link to={`/movie/${movie.movieId}`} state={movie}>
                                 
@@ -130,7 +130,6 @@ const Homepage = () =>{
                 
             </div>
 
-            <Footer></Footer>
         </div>
         
        

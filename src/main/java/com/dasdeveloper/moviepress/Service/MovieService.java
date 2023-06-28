@@ -55,7 +55,7 @@ public class MovieService {
     public List<Movie> findLatestMovies(){
 
         int length = template.findAll(Movie.class).toArray().length;
-        if(length <latestNumber){
+        if(length <5){
             return template.findAll(Movie.class);
         }
 
