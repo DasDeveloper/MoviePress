@@ -1,0 +1,52 @@
+
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    max-height: 150px;
+    background: var(--color-bg);
+    /* border: 4px red solid; */
+
+}
+.navbar .left{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar .left .logo{
+    display: inline;
+    padding: 10px;
+    font-size: 30px;
+    color:white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 100px;
+    margin-left: 30px;
+}
+.add-movie p{
+    color:white;
+    font-size: large;
+    text-align: center;
+    padding: 0;
+    text-decoration: underline;
+}
+
+
+.navbar .right {
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar .right button {
+
+    
+    width: 100px;
+    height: 40px;
+    margin-right: 20px;
+    border-radius: 5px;
+    border-color: white;
+    background-color: white;
+    /* bottom: 20px; */
+}
+
+

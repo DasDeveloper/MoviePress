@@ -1,0 +1,12 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    background-color: #006dd8;
+    height: 120px;
+
+}
+.navbar .left{
+    /* border: 2px red solid; */
+    width: 400px;
+    margin-right: 20px;
+}

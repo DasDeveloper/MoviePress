@@ -1,0 +1,40 @@
+
+.search-bar{
+    display: flex;
+    flex-direction: row;
+}
+.searchbar-input{
+    padding: 10px;
+    font-size: 20px;
+    width: 800px;
+    height: 45px;
+
+}
+.searchbar-input-button{
+
+   height: 45px;
+   width: 75px;
+   border-radius: 25px;
+   margin-left: 20px;
+   background-color: white;
+
+}
+.search-result-list{
+    padding:0;
+    list-style: none;
+    text-align: center;
+
+
+}
+
+
+.search-result-list-item{
+
+    margin-bottom: 20px;
+    font-size: 25px;
+    color: #444;
+    font-weight: 300;
+    width: 800px;
+    border: 1px red solid;
+    height: 50px;
+}

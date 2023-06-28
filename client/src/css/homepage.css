@@ -1,0 +1,60 @@
+.homepage{
+    
+    background: var(--color-bg);
+    min-height: 100vh;
+
+}
+
+.text-category{
+    color: white;
+    margin-left: 35px;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.latest-movies{
+    display: flex;
+    flex-direction: row;
+}
+
+.highest-rating-movies{
+    display: flex;
+    flex-direction: row;
+}
+
+.movieComponent{
+    margin: 35px;
+}
+
+.border{
+    border: 3px white solid;
+     width: 250px;
+     height: 400px;
+     padding: 10px;
+}
+.poster{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+
+    
+}
+
+
+.details-text{
+    color: white;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    
+    
+}
+.rating{
+    display: flex;
+    flex-direction: row;
+}
+
+/* .star{
+    vertical-align: bottom;
+} */
