@@ -66,7 +66,7 @@ function App() {
             path="/movie/:movidId"
             element={
               <>
-              <Navbar/><MoviePage/>
+              <Navbar/><MoviePage/><Footer/>
               
               </>
             }

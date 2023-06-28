@@ -97,7 +97,7 @@ const MoviePage = ()=>{
             
             {movie && valid ?(
             <div className="movie-poster">
-                <img className="movie-poster-specific" src={require("../images/BlackPantherPoster.jpeg")} alt="poster"/>
+                <img className="movie-poster-specific" src={require("../images/movie-poster.jpeg")} alt="poster"/>
 
                 <div className="details">
 
@@ -139,6 +139,14 @@ const MoviePage = ()=>{
                 
                 </div>
 
+                <div className="movie-description">
+
+                        Director: {movie.director}
+                </div>
+                <div className="movie-description">
+
+                        Actors: {movie.actors}
+                </div>
                 <div className="movie-description">
 
                         {movie.description}

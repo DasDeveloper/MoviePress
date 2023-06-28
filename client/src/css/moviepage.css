@@ -3,12 +3,12 @@
     flex-direction: row;
     
     background: var(--color-bg);
+    height: 90vh;
 }
 
 .movie-poster{
     display: flex;
     flex-direction: row;
-    /* border: 4px red solid; */
 }
 
 .movie-poster-specific{
@@ -27,7 +27,6 @@
 .details{
     display: flex;
     flex-direction: column;
-    /* border: 5px white solid; */
     margin-top: 80px;
     width: 1000px;
     height: 80%;
@@ -52,6 +51,7 @@
 }
 .details .movie-button button{
     width: 400px;
+    margin-left: 50px;
 }
 
 .details .movie-category{
@@ -69,6 +69,7 @@
     font-style: italic;
     color: white;
     margin: 50px;
+    margin-bottom: 0;
 }
 
 

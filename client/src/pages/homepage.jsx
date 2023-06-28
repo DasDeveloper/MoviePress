@@ -79,7 +79,7 @@ const Homepage = () =>{
                         <div className="border">
                             <Link to={`/movie/${movie.movieId}`} state={movie}>
                                 
-                                <img className="poster" src={require("../images/BlackPantherPoster.jpeg")} alt="poster"/>
+                                <img className="poster" src={require("../images/movie-poster.jpeg")} alt="poster"/>
                             </Link>
                             
                         </div>
@@ -105,12 +105,12 @@ const Homepage = () =>{
             
             {highestRatingMovies.map((movie) =>{
                     return(
-                    <div className="movieComponent">
+                    <div key={movie.id} className="movieComponent">
                         <div className="border">
 
                             <Link to={`/movie/${movie.movieId}`} state={movie}>
                                     
-                                <img className="poster" src={require("../images/BlackPantherPoster.jpeg")} alt="poster"/>
+                                <img className="poster" src={require("../images/movie-poster.jpeg")} alt="poster"/>
                                 
                             </Link>
                             

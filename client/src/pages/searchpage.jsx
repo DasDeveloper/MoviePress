@@ -80,7 +80,7 @@ const SearchPage = () => {
 
                             <Link to={`/movie/${movie.movieId}`} state={movie}>
                                     
-                                <img className="poster" src={require("../images/BlackPantherPoster.jpeg")} alt="poster"/>
+                                <img className="poster" src={require("../images/movie-poster.jpeg")} alt="poster"/>
                                 
                             </Link>
                             
