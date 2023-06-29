@@ -1,11 +1,13 @@
+FROM maven:3.6.3 AS maven
 
-FROM maven:3.8.2-jdk-11 AS build
-COPY . .
+WORKDIR /usr/synapsis
 RUN mvn clean package -Pprod -DskipTests
 
+FROM adoptopenjdk/openjdk11:alpine-jre
+ARG JAR_FILE=synapsis-0.0.1-SNAPSHOT.jar
+WORKDIR /opt
 
-FROM openjdk:11-jdk-slim
-COPY --from=build /target/demo-0.0.1-SNAPSHOT.jar demo.jar
-# ENV PORT=8080
+COPY --from=maven /usr/synapsis/target/${JAR_FILE} /opt/
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","demo.jar"]
+
+ENTRYPOINT ["java","-jar","synapsis-0.0.1-SNAPSHOT.jar"]
