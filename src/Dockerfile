@@ -1,15 +1,24 @@
-FROM ubuntu:latest AS build
+# Use an official OpenJDK runtime as the base image
+FROM adoptopenjdk:17-jdk-hotspot
 
-RUN apt-get update
-RUN apt-get install openjdk-17-jdk -y
-COPY . .
+# Set the working directory inside the container
+WORKDIR /app
 
-RUN ./gradlew maven --no-daemon
+# Copy the Maven project file to the container
+COPY pom.xml .
 
-FROM openjdk:17-jdk-slim
+# Copy the entire src folder to the container
+COPY src ./src
 
+# Build the application with Maven
+RUN mvn clean package -DskipTests
+
+# Expose the port that your Spring Boot application listens on
 EXPOSE 8080
 
-COPY --from=build /build/libs/demo-1.jar app.jar
+# Set any necessary environment variables
+ENV SPRING_PROFILES_ACTIVE=production
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run the JAR file when the container launches
+CMD ["java", "-jar", "target/moviepress-0.0.1-SNAPSHOT.jar"]
+
