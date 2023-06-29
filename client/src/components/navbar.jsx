@@ -67,7 +67,7 @@ const Navbar = () =>{
             <div className='right'>
             
                 {userRole === 'ADMIN' ? (<button onClick={redirectToAdminPage}>Admin</button>):(<></>)}
-                {sessionID ? <button onClick={logout}> Logout</button> :<><button onClick={redirectToSignIn}> Sign In</button> <button onClick={redirectToSignUp}> Sign up</button></>}
+                {sessionID ? <button onClick={logout}> Logout</button> :<><button onClick={redirectToSignIn}> Sign In</button></>}
                 
             </div>
             

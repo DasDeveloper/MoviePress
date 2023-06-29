@@ -11,6 +11,10 @@
 .navbar .left{
     display: flex;
     flex-direction: row;
+    max-width: max-content;
+}
+.center{
+    margin: none;
 }
 
 .navbar .left .logo{
@@ -46,7 +50,6 @@
     border-radius: 5px;
     border-color: white;
     background-color: white;
-    /* bottom: 20px; */
 }
 
 
