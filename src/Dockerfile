@@ -1,13 +1,15 @@
-FROM maven:3.6.3 AS maven
+FROM ubuntu:latest AS build
 
-WORKDIR /usr/synapsis
-RUN mvn clean package -Pprod -DskipTests
+RUN apt-get update
+RUN apt-get install openjdk-17-jdk -y
+COPY . .
 
-FROM adoptopenjdk/openjdk11:alpine-jre
-ARG JAR_FILE=synapsis-0.0.1-SNAPSHOT.jar
-WORKDIR /opt
+RUN ./gradlew maven --no-daemon
 
-COPY --from=maven /usr/synapsis/target/${JAR_FILE} /opt/
+FROM openjdk:17-jdk-slim
+
 EXPOSE 8080
 
-ENTRYPOINT ["java","-jar","synapsis-0.0.1-SNAPSHOT.jar"]
+COPY --from=build /build/libs/demo-1.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
