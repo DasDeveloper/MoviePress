@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 import Swal from "sweetalert2"
 import {TextField} from "@mui/material"
+import { SPRING_URL } from "../util/urlSpring";
 
 const AdminPage = () => {
 
@@ -46,7 +47,7 @@ const AdminPage = () => {
     
     if(query.length!==0){
       
-    await axios.get(`${process.env.SPRING_URL}/api/search?query=${query}`).then((response)=>{
+    await axios.get(`${SPRING_URL}/api/search?query=${query}`).then((response)=>{
       
       setQueryData(response.data);
     })
@@ -67,7 +68,7 @@ const AdminPage = () => {
 
         if(sessionID!== null){
 
-        const response = await axios.get(`${process.env.SPRING_URL}/api/session/${sessionID}`).then((res)=>{
+        const response = await axios.get(`${SPRING_URL}/api/session/${sessionID}`).then((res)=>{
 
          
           sessionStorage.setItem("userID",res.data.userId);
@@ -94,7 +95,7 @@ const AdminPage = () => {
   }
   const getMovieId = async () =>{
 
-     await axios.get(`${process.env.SPRING_URL}/api/movieId/get`).then((response)=>{
+     await axios.get(`${SPRING_URL}/api/movieId/get`).then((response)=>{
 
      setMovieId(response.data);
 
@@ -118,7 +119,7 @@ const AdminPage = () => {
       director:movieDirector,
       url:movieUrl
     }
-    await axios.post(`${process.env.SPRING_URL}/api/movies/add`, movie);
+    await axios.post(`${SPRING_URL}/api/movies/add`, movie);
 
     setShowNew(false)
     setMovieId("")
@@ -127,7 +128,7 @@ const AdminPage = () => {
     setMovieDescription("")
     setMovieUrl("")
 
-    await axios.put(`${process.env.SPRING_URL}/api/movieId/update`)
+    await axios.put(`${SPRING_URL}/api/movieId/update`)
 
     Swal.fire({
       title:"Succesfully added a new movie"
