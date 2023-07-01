@@ -5,6 +5,7 @@ import "../css/searchpage.css"
 import { useSearchParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import {springURL} from "../util/urlSpring.js"
 
 const SearchPage = () => {
 
@@ -29,7 +30,7 @@ const SearchPage = () => {
     
             if(sessionID!== null){
 
-            const response = await axios.get(`https://movie-press-api.onrender.com/api/session/${sessionID}`).then((res)=>{
+            const response = await axios.get(`${process.env.SPRING_URL}/api/session/${sessionID}`).then((res)=>{
 
              
               sessionStorage.setItem("userID",res.data.userId);
@@ -51,13 +52,13 @@ const SearchPage = () => {
 
         if(location.state!== null){
 
-            const response = await axios.get(`https://movie-press-api.onrender.com/api/search?query=${location.state}`);
+            const response = await axios.get(`${process.env.SPRING_URL}/api/search?query=${location.state}`);
             setDataQuery(response.data);
             setSearchParams({query:location.state})
 
         }
         else{
-            const response = await axios.get(`https://movie-press-api.onrender.com/api/search?query=${searchParams.get('query')}`);
+            const response = await axios.get(`${process.env.SPRING_URL}/api/search?query=${searchParams.get('query')}`);
             setDataQuery(response.data);
         }
         

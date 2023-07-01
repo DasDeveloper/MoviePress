@@ -3,5 +3,5 @@ package com.dasdeveloper.moviepress;
 public interface URL {
 
 
-    public String url = "https://movie-press.vercel.app/";
+     String url = "https://movie-press.vercel.app/";
 }
