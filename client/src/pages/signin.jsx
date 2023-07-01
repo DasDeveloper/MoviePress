@@ -3,6 +3,7 @@ import axios from "axios"
 import Swal from "sweetalert2"
 import "../css/signin.css"
 import {Link, useNavigate} from "react-router-dom"
+import urlSpring from "../util/urlSpring.js"
 
 
 const Signin = () =>{
@@ -25,7 +26,7 @@ const Signin = () =>{
 
     const onSubmit = async () =>{
 
-       const res = await axios.post(`http://localhost:8080/api/auth/signin`, {
+       const res = await axios.post(`https://movie-press-api.onrender.com/api/auth/signin`, {
             email:email,
             password:password
         });

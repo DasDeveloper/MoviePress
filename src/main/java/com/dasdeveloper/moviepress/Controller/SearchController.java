@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.dasdeveloper.moviepress.URL;
 
 import java.awt.print.Pageable;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin( origins = "http://localhost:3000")
+@CrossOrigin( origins = URL.url)
 @RequestMapping("/api/search")
 public class SearchController {
 

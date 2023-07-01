@@ -5,11 +5,12 @@ import com.dasdeveloper.moviepress.Model.MovieID;
 import com.dasdeveloper.moviepress.Repository.MovieIdRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.dasdeveloper.moviepress.URL;
 
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins = URL.url)
 @RequestMapping("/api/movieId")
 public class MovieIDController {
 
