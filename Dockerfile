@@ -11,5 +11,3 @@ WORKDIR /app
 COPY --from=build /app/target/moviepress-0.0.1-SNAPSHOT.jar .
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "moviepress-0.0.1-SNAPSHOT.jar"]
-
-
