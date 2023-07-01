@@ -5,6 +5,7 @@ import Footer from "../components/footer"
 import { useNavigate } from 'react-router-dom';
 import {AiTwotoneStar} from 'react-icons/ai';
 import Navbar from '../components/navbar';
+import { SPRING_URL } from "../util/urlSpring";
 
 
 import { Link } from 'react-router-dom';
@@ -29,7 +30,7 @@ const Homepage = () =>{
     
             if(sessionID!== null){
 
-            const response = await axios.get(`${process.env.SPRING_URL}/api/session/${sessionID}`).then((res)=>{
+            const response = await axios.get(`${SPRING_URL}/api/session/${sessionID}`).then((res)=>{
 
              
               sessionStorage.setItem("userID",res.data.userId);
@@ -50,12 +51,12 @@ const Homepage = () =>{
 
     const getLatestMovies = async () =>{
 
-        const response = await axios.get(`${process.env.SPRING_URL}/api/movies/latest`)
+        const response = await axios.get(`${SPRING_URL}/api/movies/latest`)
         setLatestMovies(response.data);
         
     }
     const getHighestRatingMovies = async () =>{
-        const response = await axios.get(`${process.env.SPRING_URL}/api/movies/highestrating`)
+        const response = await axios.get(`${SPRING_URL}/api/movies/highestrating`)
         setHighestRatingmovies(response.data);
     }
     

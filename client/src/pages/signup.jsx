@@ -4,6 +4,7 @@ import axios from "axios";
 import Swal from 'sweetalert2';
 import {useNavigate} from "react-router-dom";
 import {Link} from "react-router-dom";
+import { SPRING_URL } from "../util/urlSpring";
 
 
 const Signup = () =>{
@@ -26,7 +27,7 @@ const Signup = () =>{
             return;
         }
         
-      const isAlreadyUsed =  await axios.get(`${process.env.SPRING_URL}/api/users/check/${email}`);
+      const isAlreadyUsed =  await axios.get(`${SPRING_URL}/api/users/check/${email}`);
       
         if(isAlreadyUsed.data !=null){
             Swal.fire({
@@ -35,7 +36,7 @@ const Signup = () =>{
             
         }
         else{
-            await axios.post(`${process.env.SPRING_URL}/api/auth/signup`, {
+            await axios.post(`${SPRING_URL}/api/auth/signup`, {
                 firstName: firstName,
                 lastName:lastName,
                 email:email,
