@@ -19,7 +19,7 @@ const AdminPage = () => {
   const [movieId, setMovieId] = useState("")
   const [movieTitle, setMovieTitle] = useState("")
   const [movieDirector, setMovieDirector] = useState("")
-  const [movieCategory, setMovieCategory] = useState("")
+  const [movieDescription, setMovieDescription] = useState("")
   const [movieUrl, setMovieUrl] = useState("")
 
   useEffect(()=>{
@@ -114,6 +114,7 @@ const AdminPage = () => {
     const movie = {
       movieId: movieId,
       title:movieTitle,
+      description: movieDescription,
       director:movieDirector,
       url:movieUrl
     }
@@ -123,7 +124,7 @@ const AdminPage = () => {
     setMovieId("")
     setMovieTitle("")
     setMovieDirector("")
-    setMovieCategory("")
+    setMovieDescription("")
     setMovieUrl("")
 
     await axios.put("http://localhost:8080/api/movieId/update")
@@ -138,7 +139,7 @@ const AdminPage = () => {
     setMovieId("")
     setMovieTitle("")
     setMovieDirector("")
-    setMovieCategory("")
+    setMovieDescription("")
     setMovieUrl("")
   }
   return (
@@ -157,7 +158,7 @@ const AdminPage = () => {
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
                 <th scope="col">Rating</th>
-                <th scope="col">Directors</th>
+                <th scope="col">Director</th>
                 <th scope="col">Delete</th>
               </tr>
             </thead>
@@ -190,7 +191,7 @@ const AdminPage = () => {
               <TextField style = {{width: 600, margin:20}} disabled id="outlined-disabled" label="ID"defaultValue={`${movieId}`}/>
               <TextField style = {{width: 600, margin:20}} id="outlined-basic" onChange={e=>{setMovieTitle(e.target.value)}} margin="normal" label="Title" variant="outlined" />
               <TextField style = {{width: 600, margin:20}} id="outlined-basic" onChange={e=>{setMovieDirector(e.target.value)}} margin="normal" label="Director" variant="outlined" />
-              <TextField style = {{width: 600, margin:20}} id="outlined-basic" onChange={e=>{setMovieCategory(e.target.value)}} margin="normal" label="Category" variant="outlined" />
+              <TextField style = {{width: 600, margin:20}} id="outlined-basic" onChange={e=>{setMovieDescription(e.target.value)}} margin="normal" label="Description" variant="outlined" />
               <TextField style = {{width: 600, margin:20}} id="outlined-basic" onChange={e=>{setMovieUrl(e.target.value)}} margin="normal" label="Youtube Video ID" variant="outlined" />
 
             

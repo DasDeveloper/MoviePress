@@ -57,9 +57,17 @@
 .details .movie-category{
     margin-left: 50px;
 }
+.movie-actors{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin-left: 50px;
+    margin-top: 20px;
+}
 .movie-category p{
     color: white;
     font-size: large;
+    margin-top: 20px;
 }
 .movie-category span{
     margin-right: 10px;

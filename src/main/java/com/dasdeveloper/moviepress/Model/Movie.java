@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -24,10 +25,10 @@ public class Movie {
     private long movieId;
     private String title;
     private String director;
-    private float rating;
-    private List<Review> reviewsList;
+    private float rating = 0;
     private String url;
     private String description;
-    private List<String> categories;
+    private List<String> categories = new ArrayList<>();
+    private List<String> actors = new ArrayList<>();
     
 }

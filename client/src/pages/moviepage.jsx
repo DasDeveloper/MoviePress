@@ -15,6 +15,7 @@ const MoviePage = ()=>{
     const movieId = location.pathname.substring(7);
     const [valid, setValid] = useState(false);
     const [categories, setCategories] = useState([]);
+    const [actors, setActors] = useState([]);
     const [isVideoModalOpen, setVideoModalOpen] = useState(false);
     const [isReviewModalOpen, setReviewModalOpen] = useState(false);
     const [videoId, setVideoId] = useState("None");
@@ -38,6 +39,9 @@ const MoviePage = ()=>{
                 setMovie(response.data)
                 if(response.data.categories !== null){
                     setCategories(response.data.categories)
+                }
+                if(response.data.actors !==null){
+                    setActors(response.data.actors)
                 }
                 if(response.data.url!== null && movie === null){
                     setVideoId(response.data.url)
@@ -139,13 +143,20 @@ const MoviePage = ()=>{
                 
                 </div>
 
-                <div className="movie-description">
-
-                        Director: {movie.director}
+                
+                <div className="movie-actors">
+                    <p><b>Director</b>:   <i> {movie.director}</i></p>
+                    
+                       
                 </div>
-                <div className="movie-description">
+                
+                <div className="movie-actors">
 
-                        Actors: {movie.actors}
+                    <p><b>Actors</b>: <i>{actors.map((actor) =>{
+                        return actor;
+                    })}</i></p>
+
+                         
                 </div>
                 <div className="movie-description">
 
