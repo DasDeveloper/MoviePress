@@ -4,6 +4,7 @@ import {useNavigate} from "react-router"
 import Swal from 'sweetalert2';
 import { useEffect, useState } from 'react';
 import SearchBar from './SearchBar';
+import { SPRING_URL } from "../util/urlSpring";
 
 const Navbar = () =>{
 
@@ -35,7 +36,7 @@ const Navbar = () =>{
     const logout = async () =>{
             
 
-            await axios.delete(`${process.env.SPRING_URL}/api/session/delete/${sessionID}`).then(() =>{
+            await axios.delete(`${SPRING_URL}/api/session/delete/${sessionID}`).then(() =>{
 
                 navigate("/");
                 
