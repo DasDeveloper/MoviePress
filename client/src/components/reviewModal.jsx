@@ -42,7 +42,7 @@ const ReviewModal = ({isOpen, movie, onClose}) =>{
             setRating(0);
             return;
         }
-        const response = await axios.post(`http://localhost:8080/api/reviews/movie/addReview`, {
+        const response = await axios.post(`https://movie-press-api.onrender.com/api/reviews/movie/addReview`, {
             value:rating,
             movieId: movie.movieId,
             userId: sessionStorage.getItem("userID")

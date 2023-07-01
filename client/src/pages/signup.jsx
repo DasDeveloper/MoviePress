@@ -26,7 +26,7 @@ const Signup = () =>{
             return;
         }
         
-      const isAlreadyUsed =  await axios.get(`http://localhost:8080/api/users/check/${email}`);
+      const isAlreadyUsed =  await axios.get(`https://movie-press-api.onrender.com/api/users/check/${email}`);
       
         if(isAlreadyUsed.data !=null){
             Swal.fire({
@@ -35,7 +35,7 @@ const Signup = () =>{
             
         }
         else{
-            await axios.post(`http://localhost:8080/api/auth/signup`, {
+            await axios.post(`https://movie-press-api.onrender.com/api/auth/signup`, {
                 firstName: firstName,
                 lastName:lastName,
                 email:email,

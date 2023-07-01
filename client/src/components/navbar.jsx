@@ -35,7 +35,7 @@ const Navbar = () =>{
     const logout = async () =>{
             
 
-            await axios.delete(`http://localhost:8080/api/session/delete/${sessionID}`).then(() =>{
+            await axios.delete(`https://movie-press-api.onrender.com/api/session/delete/${sessionID}`).then(() =>{
 
                 navigate("/");
                 

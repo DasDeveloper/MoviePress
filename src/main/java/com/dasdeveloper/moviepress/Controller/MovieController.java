@@ -8,13 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.dasdeveloper.moviepress.URL;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/movies")
-@CrossOrigin( origins = "http://localhost:3000")
+@CrossOrigin( origins = URL.url)
 public class MovieController {
 
 

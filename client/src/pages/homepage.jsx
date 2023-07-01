@@ -29,7 +29,7 @@ const Homepage = () =>{
     
             if(sessionID!== null){
 
-            const response = await axios.get(`http://localhost:8080/api/session/${sessionID}`).then((res)=>{
+            const response = await axios.get(`https://movie-press-api.onrender.com/api/session/${sessionID}`).then((res)=>{
 
              
               sessionStorage.setItem("userID",res.data.userId);
@@ -50,16 +50,13 @@ const Homepage = () =>{
 
     const getLatestMovies = async () =>{
 
-        const response = await axios.get('http://localhost:8080/api/movies/latest')
+        const response = await axios.get('https://movie-press-api.onrender.com/api/movies/latest')
         setLatestMovies(response.data);
         
     }
     const getHighestRatingMovies = async () =>{
-        const response = await axios.get('http://localhost:8080/api/movies/highestrating')
+        const response = await axios.get('https://movie-press-api.onrender.com/api/movies/highestrating')
         setHighestRatingmovies(response.data);
-    }
-    const getMoviePoster = async (title) =>{
-        return await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query= + ${title}`);
     }
     
     
