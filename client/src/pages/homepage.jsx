@@ -29,7 +29,7 @@ const Homepage = () =>{
     
             if(sessionID!== null){
 
-            const response = await axios.get(`https://movie-press-api.onrender.com/api/session/${sessionID}`).then((res)=>{
+            const response = await axios.get(`${process.env.SPRING_URL}/api/session/${sessionID}`).then((res)=>{
 
              
               sessionStorage.setItem("userID",res.data.userId);
@@ -50,12 +50,12 @@ const Homepage = () =>{
 
     const getLatestMovies = async () =>{
 
-        const response = await axios.get('https://movie-press-api.onrender.com/api/movies/latest')
+        const response = await axios.get(`${process.env.SPRING_URL}/api/movies/latest`)
         setLatestMovies(response.data);
         
     }
     const getHighestRatingMovies = async () =>{
-        const response = await axios.get('https://movie-press-api.onrender.com/api/movies/highestrating')
+        const response = await axios.get(`${process.env.SPRING_URL}/api/movies/highestrating`)
         setHighestRatingmovies(response.data);
     }
     

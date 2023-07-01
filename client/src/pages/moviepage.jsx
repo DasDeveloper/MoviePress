@@ -34,7 +34,7 @@ const MoviePage = ()=>{
 
     const fetchMovie =  async () =>{
 
-            const response = await axios.get(`https://movie-press-api.onrender.com/api/movies/${movieId}`);
+            const response = await axios.get(`${process.env.SPRING_URL}/api/movies/${movieId}`);
             if(response!==null){
                 setMovie(response.data)
                 if(response.data.categories !== null){
@@ -57,7 +57,7 @@ const MoviePage = ()=>{
             
             if(sessionID!== null){
     
-                 await axios.get(`https://movie-press-api.onrender.com/api/session/${sessionID}`).then((res)=>{
+                 await axios.get(`${process.env.SPRING_URL}/api/session/${sessionID}`).then((res)=>{
                  
                   sessionStorage.setItem("userID",res.data.userId);
                   sessionStorage.setItem("userRole",res.data.userRole);

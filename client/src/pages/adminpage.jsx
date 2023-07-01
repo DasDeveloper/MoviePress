@@ -46,7 +46,7 @@ const AdminPage = () => {
     
     if(query.length!==0){
       
-    await axios.get(`https://movie-press-api.onrender.com/api/search?query=${query}`).then((response)=>{
+    await axios.get(`${process.env.SPRING_URL}/api/search?query=${query}`).then((response)=>{
       
       setQueryData(response.data);
     })
@@ -67,7 +67,7 @@ const AdminPage = () => {
 
         if(sessionID!== null){
 
-        const response = await axios.get(`https://movie-press-api.onrender.com/api/session/${sessionID}`).then((res)=>{
+        const response = await axios.get(`${process.env.SPRING_URL}/api/session/${sessionID}`).then((res)=>{
 
          
           sessionStorage.setItem("userID",res.data.userId);
@@ -94,7 +94,7 @@ const AdminPage = () => {
   }
   const getMovieId = async () =>{
 
-     await axios.get("https://movie-press-api.onrender.com/api/movieId/get").then((response)=>{
+     await axios.get(`${process.env.SPRING_URL}/api/movieId/get`).then((response)=>{
 
      setMovieId(response.data);
 
@@ -118,7 +118,7 @@ const AdminPage = () => {
       director:movieDirector,
       url:movieUrl
     }
-    await axios.post("https://movie-press-api.onrender.com/api/movies/add", movie);
+    await axios.post(`${process.env.SPRING_URL}/api/movies/add`, movie);
 
     setShowNew(false)
     setMovieId("")
@@ -127,7 +127,7 @@ const AdminPage = () => {
     setMovieDescription("")
     setMovieUrl("")
 
-    await axios.put("https://movie-press-api.onrender.com/api/movieId/update")
+    await axios.put(`${process.env.SPRING_URL}/api/movieId/update`)
 
     Swal.fire({
       title:"Succesfully added a new movie"
