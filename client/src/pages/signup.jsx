@@ -16,9 +16,6 @@ const Signup = () =>{
     const [isEmailAlreadyUsed, setEmailAlreadyUsed] = useState(false);
     const navigate = useNavigate();
 
-    // useEffect( () =>{
-
-    // }, [isEmailAlreadyUsed])
 
     const onSubmit = async () => {
 
