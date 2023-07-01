@@ -4,6 +4,7 @@ import "../css/reviewModal.css"
 import axios from 'axios';
 import Swal from "sweetalert2";
 import { useState } from 'react';
+import { SPRING_URL } from "../util/urlSpring";
 
 
 
@@ -42,7 +43,7 @@ const ReviewModal = ({isOpen, movie, onClose}) =>{
             setRating(0);
             return;
         }
-        const response = await axios.post(`${process.env.SPRING_URL}/api/reviews/movie/addReview`, {
+        const response = await axios.post(`${SPRING_URL}/api/reviews/movie/addReview`, {
             value:rating,
             movieId: movie.movieId,
             userId: sessionStorage.getItem("userID")
