@@ -15,11 +15,13 @@
 .latest-movies{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .highest-rating-movies{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .movieComponent{

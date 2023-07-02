@@ -31,7 +31,7 @@ const MoviePage = ()=>{
         // isAlreadyReviewed();
        
       
-    }, [location.pathname])
+    }, [location.pathname, isReviewModalOpen])
 
     const fetchMovie =  async () =>{
 
